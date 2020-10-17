@@ -2,10 +2,19 @@
   font-family: 'Lato', sans-serif;
   margin: 0px;
   padding: 0px;
+  
 }
 
 .app {
 
   display: flex;
   flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
 }

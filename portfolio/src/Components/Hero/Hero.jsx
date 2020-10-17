@@ -25,7 +25,7 @@ function Hero() {
       </div>
 
       <div className="hero-arrow">
-          <i class="fas fa-angle-down"></i>
+          <i className="fas fa-angle-down"></i>
       </div>
 
     </div>
