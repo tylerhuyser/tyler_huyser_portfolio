@@ -5,8 +5,7 @@ import Hero from './Components/Hero/Hero.jsx'
 import Bio from './Components/Bio/Bio.jsx';
 import Skills from './Components/Skills/Skills.jsx';
 import Projects from './Components/Projects/Projects.jsx';
-
-import { Route } from 'react-router-dom'
+import Resume from './Components/Resume/Resume.jsx';
 
 import './App.css';
 
@@ -33,6 +32,8 @@ function App() {
       {/* </Route>   */}
     
         <Projects />
+
+        <Resume />
 
 
     </div>

@@ -1,35 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Skills.css";
-import parse from "react-dom/server";
 
 function Skills(props) {
   const parse = require("html-react-parser");
 
   const [skillsCarousel, setSkillsCarousel] = useState([]);
-  const [visibleCarousel, setVisibleCarousel] = useState([])
   const [animationType, setAnimationType] = useState("skill-card slide-in-right")
 
   const { popularUpperIndex, setPopularUpperIndex } = props;
   const { popularLowerIndex, setPopularLowerIndex } = props;
-
-  useEffect(() => {
-    const getSkillsCarousel = () => {
-      setSkillsCarousel(skillCards.slice(0, 5));
-      setVisibleCarousel(skillsCarousel)
-    };
-    getSkillsCarousel();
-  }, []);
-
-  const carouselTimeout = useRef(null)
-  const classTimeout = useRef(null)
-
-
-  useEffect(() => {
-    carouselTimeout.current = setTimeout(() => plusSlides(1), 2000);
-    return () => {
-      clearTimeout(carouselTimeout.current);
-    };
-  })
 
   // useEffect(() => {
   //   classTimeout.current = setTimeout(() => setAnimationType("skill-card"), 999);
@@ -67,12 +46,30 @@ function Skills(props) {
     const skillIcon = parse(skill.icon, { htmlparser2: { lowerCaseTags: false } });
 
     return (
-      <div className={animationType} id={skill.name}>
+      <div className={animationType} id={skill.name} key={skill.name}>
         {skillIcon}
         <p className="skill-name">{skill.name}</p>
       </div>
     );
   });
+
+  useEffect(() => {
+    const getSkillsCarousel = () => {
+      setSkillsCarousel(skillCards.slice(0, 5));
+    };
+    getSkillsCarousel();
+  }, []);
+
+  const carouselTimeout = useRef(null)
+  const classTimeout = useRef(null)
+
+
+  useEffect(() => {
+    carouselTimeout.current = setTimeout(() => plusSlides(1), 2000);
+    return () => {
+      clearTimeout(carouselTimeout.current);
+    };
+  })
 
   function plusSlides(n) {
     let tempLowerIndex = popularLowerIndex;
@@ -203,7 +200,7 @@ function Skills(props) {
 
       <h1 className="skills-title">SKILLS</h1>
 
-      <p className="skills-subtitle">These are a few of the technologies I work with:</p>
+      <p className="skills-subtitle">A few technologies I work with...</p>
 
       <div className="skills-carousel">
 

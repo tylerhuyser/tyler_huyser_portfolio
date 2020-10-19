@@ -17,19 +17,16 @@
 .skills-title {
 
   color: white;
-  font-family: 'Lato', sans-serif;
+  font-size: 2vw;
   letter-spacing: 0.9px;
-  font-size: 5vw;
-  margin-bottom: 25px;
 
 }
 
 .skills-subtitle {
 
   color: white;
-  font-family: 'Lato', sans-serif;
-  font-size: 2vw;
-  margin: 10px;
+  font-size: 5vw;
+  margin: 25px;
   letter-spacing: 1.5px;
 
 }

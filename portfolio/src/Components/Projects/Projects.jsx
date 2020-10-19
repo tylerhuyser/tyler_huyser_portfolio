@@ -15,9 +15,13 @@ function Projects() {
       <div className="projects-grid">
 
 
-        <a className="project-container" id="fungus-app" target="_blank" href="https://github.com/tylerhuyser/CanYouEatItFungusIdentificationApp" >
+        <a className="project-container" id="fungus-app" target="_blank" rel="noreferrer noopener" href="https://github.com/tylerhuyser/CanYouEatItFungusIdentificationApp" >
 
-          <img className="project-image" src="https://github.com/tylerhuyser/CanYouEatItFungusIdentificationApp/blob/master/ReadME_Images/Wireframe_Images/Desktop_Landing_Page.png?raw=true" />
+          <img className="project-image" alt="fungus-app" src="https://github.com/tylerhuyser/CanYouEatItFungusIdentificationApp/blob/master/ReadME_Images/Wireframe_Images/Desktop_Landing_Page.png?raw=true"  style={{
+
+            objectPosition: "50% 45%",
+
+            }} />
 
           <div className="project-copy" >
           
@@ -30,7 +34,13 @@ function Projects() {
         </a>
 
 
-        <div className="project-container" id="profesh" target="_blank" href="https://github.com/tylerhuyser/profesh" >
+        <div className="project-container" id="profesh" target="_blank" rel="noreferrer noopener" href="https://github.com/tylerhuyser/profesh" >
+
+          <img className="project-image" alt="profesh" src="https://i.imgur.com/8wixFCM.png" style={{
+
+            objectPosition: "50% 35%",
+            
+          }} />
 
           <div className="project-copy" >
 
@@ -43,8 +53,10 @@ function Projects() {
         </div>
 
 
-        <div className="project-container" id="twinkle-toes" target="_blank" href="https://github.com/tylerhuyser/twinkle-toes" >
+        <div className="project-container" id="twinkle-toes" target="_blank" rel="noreferrer noopener" href="https://github.com/tylerhuyser/twinkle-toes" >
 
+          <img className="project-image" alt="twinkle-toes" src="https://i.imgur.com/lNWonIE.png" />
+          
           <div className="project-copy" >
           
             <p className="project-title">TWINKLES TOES</p>
@@ -55,7 +67,7 @@ function Projects() {
             
         </div>
 
-        <div className="project-container" id="TBD" target="_blank" href="" >
+        <div className="project-container" id="TBD" target="_blank" rel="noreferrer noopener" href="" >
 
           <div className="project-copy" >
           

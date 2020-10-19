@@ -1,6 +1,5 @@
 import React from 'react';
 import './Bio.css';
-import { Link } from 'react-router-dom';
 
 function Bio() { 
 
@@ -10,7 +9,7 @@ function Bio() {
 
       <div className="bio-contents">
 
-        <img className="bio-image" src="https://format-com-cld-res.cloudinary.com/image/private/s--0CiPe72Y--/c_crop,h_1360,w_1360,x_0,y_0/c_fill,g_center,h_380,w_380/dpr_2,fl_keep_iptc.progressive,q_95/v1/8bc70e43e0e537d659d8f794a2200d22/Headshot_Tyler_Huyser.jpg" />
+        <img className="bio-image" alt="bio-headshot" src="https://format-com-cld-res.cloudinary.com/image/private/s--0CiPe72Y--/c_crop,h_1360,w_1360,x_0,y_0/c_fill,g_center,h_380,w_380/dpr_2,fl_keep_iptc.progressive,q_95/v1/8bc70e43e0e537d659d8f794a2200d22/Headshot_Tyler_Huyser.jpg" />
 
         <div className="bio">
 
