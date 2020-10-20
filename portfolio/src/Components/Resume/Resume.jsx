@@ -57,6 +57,10 @@ function Resume() {
 
       </div>
 
+      <a className="resume-download-link" target="_blank" rel="noreferrer noopener" href="https://drive.google.com/file/d/119a9_4ptdEDmtNPvgr2i9BOEmsyisst1/view?usp=sharing">
+        <button>RESUME</button>
+      </a>
+
     </div>
   );
 }

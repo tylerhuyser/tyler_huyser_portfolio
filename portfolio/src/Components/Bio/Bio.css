@@ -79,3 +79,27 @@
     margin: 10px;
 
   }
+
+  @media only screen and (max-width: 750px) {
+
+    .bio-contents {
+
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    .bio-image {
+
+      width: 60vw;
+
+    }
+
+    .bio {
+
+      margin-top: 25px;
+      width: 60vw;
+
+    }
+
+  }

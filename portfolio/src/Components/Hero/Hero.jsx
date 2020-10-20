@@ -24,7 +24,7 @@ function Hero() {
       </div>
 
       <a className="hero-arrow" href="#bio">
-        <i class="fas fa-chevron-down heartbeat"></i>
+        <i className="fas fa-chevron-down heartbeat"></i>
       </a>
 
     </div>
