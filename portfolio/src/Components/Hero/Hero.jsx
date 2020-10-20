@@ -17,15 +17,15 @@ function Hero() {
           <p>| Full Stack Software Engineer |</p>
         </div>
 
-        <div className="hero-call-to-action">
+        <a className="hero-call-to-action" href="#bio">
           <p>GET TO KNOW ME</p>
-        </div>
+        </a>
         
       </div>
 
-      <div className="hero-arrow">
-          <i className="fas fa-angle-down"></i>
-      </div>
+      <a className="hero-arrow" href="#bio">
+        <i class="fas fa-chevron-down heartbeat"></i>
+      </a>
 
     </div>
 

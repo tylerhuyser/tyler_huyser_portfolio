@@ -40,7 +40,7 @@
 
 }
 
-.work-experience-card::before {
+/* .resume-timeline::before {
 
   content: "";
   display: block;
@@ -50,5 +50,96 @@
   position: absolute;
   left: 35%;
   top: 0;
+
+} */
+
+.work-experience-title {
+
+  color: white;
+  font-size: 2vw;
+  margin: 25px;
+  letter-spacing: 0.9px;
+
+}
+
+.work-experience-card {
+
+  display: flex;
+  text-align: left;
+  margin: 10px;
+  padding: 10px;
+
+}
+
+.job-overview-information {
+
+  min-width: 35vw;
+  margin-right: 5vw;
+  border-right: 1px solid black
+
+
+}
+
+.job-title {
+
+  color: white;
+  font-size: 2vw;
+  letter-spacing: 0.9px;
+
+}
+
+.job-overview-information::after {
+
+font-family: "Font Awesome 5 Free";
+font-weight: 900;
+content: "\f19d";
+position: relative;
+right: 100%;
+
+}
+
+.employment-dates {
+
+  color: white;
+  letter-spacing: 0.9px;
+  line-height: 4vh;
+  text-align: left;
+  margin: 10px 0px;
+
+}
+
+.employer-name {
+
+  color: white;
+  font-size: 2vw;
+  letter-spacing: 0.9px;
+
+}
+
+.role-description {
+
+  color: white;
+  letter-spacing: 0.9px;
+  line-height: 4vh;
+  text-align: left;
+  margin: 10px 0px;
+
+}
+
+.education-title {
+
+  color: white;
+  font-size: 2vw;
+  margin: 25px;
+  letter-spacing: 0.9px;
+
+}
+
+.entrepreneurship-title {
+
+  color: white;
+  font-size: 2vw;
+  margin: 25px;
+  letter-spacing: 0.9px;
 
 }
