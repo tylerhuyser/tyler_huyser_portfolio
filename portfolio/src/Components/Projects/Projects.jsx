@@ -10,7 +10,7 @@ function Projects() {
 
       <p className="projects-title">PORTFOLIO</p>
 
-      <p className="projects-subtitle">Check out some of my work.</p>
+      <p className="projects-subtitle">Just a sample of my work...</p>
 
       <div className="projects-grid">
 
@@ -68,6 +68,8 @@ function Projects() {
         </div>
 
         <div className="project-container" id="TBD" target="_blank" rel="noreferrer noopener" href="" >
+
+        <img className="project-image" alt="awoken" src="https://camo.githubusercontent.com/833cca71cd237398e370c4c862952145b942502a63a9198c8269b8f4d4b870a2/68747470733a2f2f692e696d6775722e636f6d2f4b56624b787a412e6a7067" />
 
           <div className="project-copy" >
           
