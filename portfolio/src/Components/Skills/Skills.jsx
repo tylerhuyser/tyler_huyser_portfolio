@@ -1,199 +1,70 @@
 import React, { useState, useEffect, useRef } from "react";
+import styled from "styled-components"
 import "./Skills.css";
 
-function Skills(props) {
-  const parse = require("html-react-parser");
+import Carousel from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 
-  const [skillsCarousel, setSkillsCarousel] = useState([]);
-  const [animationType, setAnimationType] = useState("skill-card slide-in-right")
+// const SliderWrapper = styled.div`
+//     .skill-icon {
+//         img {
+//             margin: 1.9em 0 0.4em 18%;
+//             width: 64%;
+//         }
+//         p {
+//             margin: 0 0 1.2em 0;
+//             font-size: 0.9em;
+//             text-align: center;
+//         }
+//     }
+//     .BrainhubCarousel__arrows {
+//         border: 3px solid ${ colors.teal };
+//         border-radius: 50%;
+//         background: rgba(0,0,0,0);
+//         span {
+//             border-color: ${ colors.teal };
+//         }
+//         &:hover {
+//             background: ${ colors.teal };
+//             span {
+//                 border-color: ${ colors.white }
+//             }
+//         }
+//     }
+//     .BrainhubCarousel__trackContainer {
+//         margin: 0 2.1em;
+//         padding: 0 1.3em;
+//         border-radius: 4px;
+//         background: ${ colors.white };
+//         background: url(https://res.cloudinary.com/dov1pamgz/image/upload/v1547316989/bg.jpg)
+//         no-repeat center center fixed;
+//         background-size: cover;
+//         box-shadow: ${ elevation[0] };
+//     }
+// `
 
-  const { popularUpperIndex, setPopularUpperIndex } = props;
-  const { popularLowerIndex, setPopularLowerIndex } = props;
+export default function Skills(props) {
 
-  // useEffect(() => {
-  //   classTimeout.current = setTimeout(() => setAnimationType("skill-card"), 999);
-  //   return () => {
-  //     clearTimeout(classTimeout.current)
-  //   };
-  // }, [animationType])
-
-
-  const skills = [
-    { name: "ReactJS", icon: '<i class="devicon-react-original skill-icon"></i>' },
-    {
-      name: "JavaScript",
-      icon: '<i class="devicon-javascript-plain skill-icon"></i>',
-    },
-    { name: "CSS3", icon: '<i class="devicon-css3-plain skill-icon"></i>' },
-    { name: "Git", icon: '<i class="devicon-git-plain skill-icon"></i>' },
-    { name: "MongoDB", icon: '<i class="devicon-mongodb-plain skill-icon"></i>' },
-    { name: "Ruby", icon: '<i class="devicon-ruby-plain skill-icon"></i>' },
-    { name: "Rails", icon: '<i class="devicon-rails-plain skill-icon"></i>' },
-    { name: "Node JS", icon: '<i class="devicon-nodejs-plain skill-icon"></i>' },
-    { name: "HTML5", icon: '<i class="devicon-html5-plain skill-icon"></i>' },
-    { name: "Heroku", icon: '<i class="devicon-heroku-original skill-icon"></i>' },
-    {
-      name: "Postgresql",
-      icon: '<i class="devicon-postgresql-plain skill-icon"></i>',
-    },
-    {
-      name: "Photoshop",
-      icon: '<i class="devicon-photoshop-plain skill-icon"></i>',
-    },
-  ];
-
-  const skillCards = skills.map((skill, idx) => {
-    const skillIcon = parse(skill.icon, { htmlparser2: { lowerCaseTags: false } });
-
-    return (
-      <div className={animationType} id={skill.name} key={skill.name}>
-        {skillIcon}
-        <p className="skill-name">{skill.name}</p>
-      </div>
-    );
-  });
+  const [skillsDisplayed, setSkillsDisplayed] = useState(8)
 
   useEffect(() => {
-    const getSkillsCarousel = () => {
-      setSkillsCarousel(skillCards.slice(0, 5));
-    };
-    getSkillsCarousel();
-  }, []);
-
-  const carouselTimeout = useRef(null)
-  const classTimeout = useRef(null)
-
-
-  useEffect(() => {
-    carouselTimeout.current = setTimeout(() => plusSlides(1), 2000);
-    return () => {
-      clearTimeout(carouselTimeout.current);
-    };
+      handleResize()
+      window.addEventListener(`resize`, handleResize)
+      return () => window.removeEventListener(`resize`, handleResize)
   })
 
-  function plusSlides(n) {
-    let tempLowerIndex = popularLowerIndex;
-    let tempUpperIndex = popularUpperIndex;
-
-    if (n === -1 && tempLowerIndex === 0) {
-      clearTimeout(carouselTimeout.current)
-      
-      skillsCarousel.pop();
-      setSkillsCarousel(skillsCarousel);
-
-      setAnimationType('skill-card slide-in-left')
-
-      tempLowerIndex = skillCards.length - 1;
-      tempUpperIndex -= 1;
-
-      setPopularLowerIndex(tempLowerIndex);
-      setPopularUpperIndex(tempUpperIndex);
-
-      setSkillsCarousel((prevSkillsCarousel) => {
-        return [skillCards[tempLowerIndex], ...prevSkillsCarousel];
-      });
-    } else if (n === -1 && tempUpperIndex === 0) {
-      clearTimeout(carouselTimeout.current)
-
-      skillsCarousel.pop();
-      setSkillsCarousel(skillsCarousel);
-
-      setAnimationType('skill-card slide-in-left')
-
-      tempLowerIndex -= 1;
-      tempUpperIndex = skillCards.length - 1;
-
-      setPopularLowerIndex(tempLowerIndex);
-      setPopularUpperIndex(tempUpperIndex);
-
-      setSkillsCarousel((prevSkillsCarousel) => {
-        return [skillCards[tempLowerIndex], ...prevSkillsCarousel];
-      });
-    } else if (n === -1 && tempLowerIndex !== 0) {
-      clearTimeout(carouselTimeout.current)
-
-      skillsCarousel.pop();
-      setSkillsCarousel(skillsCarousel);
-
-      setAnimationType('skill-card slide-in-left')
-
-      tempUpperIndex -= 1;
-      tempLowerIndex -= 1;
-
-      setPopularLowerIndex(tempLowerIndex);
-      setPopularUpperIndex(tempUpperIndex);
-
-      setSkillsCarousel((prevSkillsCarousel) => {
-        return [skillCards[tempLowerIndex], ...prevSkillsCarousel];
-      });
-    } else if (n === 1 && tempUpperIndex === skillCards.length - 1) {
-      clearTimeout(carouselTimeout.current)
-
-      skillsCarousel.shift();
-      setSkillsCarousel(skillsCarousel);
-
-      setAnimationType('skill-card slide-in-right')
-
-      tempUpperIndex = 0;
-      tempLowerIndex += 1;
-
-      setPopularLowerIndex(tempLowerIndex);
-      setPopularUpperIndex(tempUpperIndex);
-
-      setSkillsCarousel((prevSkillsCarousel) => {
-        return [...prevSkillsCarousel, skillCards[tempUpperIndex]];
-      });
-    } else if (n === 1 && tempLowerIndex === skillCards.length - 1) {
-      clearTimeout(carouselTimeout.current)
-
-      skillsCarousel.shift();
-      setSkillsCarousel(skillsCarousel);
-
-      setAnimationType('skill-card slide-in-right')
-
-      tempUpperIndex += 1;
-      tempLowerIndex = 0;
-
-      setPopularLowerIndex(tempLowerIndex);
-      setPopularUpperIndex(tempUpperIndex);
-
-      setSkillsCarousel((prevSkillsCarousel) => {
-        return [...prevSkillsCarousel, skillCards[tempUpperIndex]];
-      });
-    } else if (n === 1 && tempUpperIndex !== skillCards.length - 1) {
-      clearTimeout(carouselTimeout.current)
-
-      skillsCarousel.shift();
-      setSkillsCarousel(skillsCarousel);
-
-      setAnimationType('skill-card slide-in-right')
-
-      tempUpperIndex += 1;
-      tempLowerIndex += 1;
-
-      setPopularLowerIndex(tempLowerIndex);
-      setPopularUpperIndex(tempUpperIndex);
-
-      setSkillsCarousel((prevSkillsCarousel) => {
-        return [...prevSkillsCarousel, skillCards[tempUpperIndex]];
-      });
-    }
+  const handleResize = () => {
+      const width = window.innerWidth
+      if (width > 850) {
+          setSkillsDisplayed(8)
+      } else if (width > 640) {
+          setSkillsDisplayed(6)
+      } else if (width > 540) {
+          setSkillsDisplayed(5)
+      } else {
+          setSkillsDisplayed(4)
+      }
   }
-
-//   const handleResize = () => {
-//     const width = window.innerWidth
-//     if (width > 850) {
-//         setSkillsDisplayed(8)
-//     } else if (width > 640) {
-//         setSkillsDisplayed(6)
-//     } else if (width > 540) {
-//         setSkillsDisplayed(5)
-//     } else {
-//         setSkillsDisplayed(4)
-//     }
-// }
-  
-  // From: https://github.com/LucasLombardo/portfolio-blog/blob/master/src/components/home/skillSlider.js
 
   return (
     <div className="section skills-container" id="skills">
@@ -202,7 +73,75 @@ function Skills(props) {
 
       <p className="skills-subtitle">A few technologies I work with...</p>
 
-      <div className="skills-carousel">
+
+      {/* <SliderWrapper> */}
+            <Carousel
+                slidesPerPage={skillsDisplayed}
+                arrows={skillsDisplayed > 4}
+                autoPlay={2700}
+                infinite
+            >
+                <div className="skill-icon">
+                    <i class="devicon-nodejs-plain skill-icon"></i>
+                    <p>Node JS</p>
+                </div>
+                <div className="skill-icon">
+                    <i class="devicon-html5-plain skill-icon"></i>
+                    <p>HTML5</p>
+                </div>
+                <div className="skill-icon">
+                <i class="devicon-javascript-plain skill-icon"></i>
+                    <p>Javascript</p>
+                </div>
+                <div className="skill-icon">
+                <i class="devicon-react-original skill-icon"></i>
+                    <p>ReactJS</p>
+                </div>
+                <div className="skill-icon">
+                    <i class="devicon-redux-original skill-icon"></i>
+                    <p>Redux</p>
+                </div>
+                <div className="skill-icon">
+                    <i class="devicon-css3-plain skill-icon"></i>
+                    <p>CSS3</p>
+                </div>
+                <div className="skill-icon">
+                <i class="devicon-git-plain skill-icon"></i>
+                    <p>Git</p>
+                </div>
+                <div className="skill-icon">
+                    <i class="devicon-ruby-plain skill-icon"></i>
+                    <p>Ruby</p>
+                </div>
+                <div className="skill-icon">
+                <i class="devicon-rails-plain skill-icon"></i>
+                    <p>Rails</p>
+                </div>
+                <div className="skill-icon">
+                <i class="devicon-mongodb-plain skill-icon"></i>
+                    <p>MongoDB</p>
+                </div>
+                <div className="skill-icon">
+                <i class="devicon-express-original skill-icon"></i>
+                    <p>Express</p>
+                </div>
+                <div className="skill-icon">
+                <i class="devicon-postgresql-plain skill-icon"></i>
+                    <p>PostgreSQL</p>
+                </div>
+                <div className="skill-icon">
+                  <i class="devicon-heroku-original skill-icon"></i>
+                    <p>Heroku</p>
+                </div>
+                <div className="skill-icon">
+                  <i class="devicon-photoshop-plain skill-icon"></i>
+                    <p>Photoshop</p>
+                </div>
+            </Carousel>
+        {/* </SliderWrapper> */}
+
+
+      {/* <div className="skills-carousel">
 
             <button className="prev" onClick={() => plusSlides(-1)}>
               {" "}
@@ -216,9 +155,7 @@ function Skills(props) {
               &#10095;
             </button>
  
-      </div>
+      </div> */}
     </div>
   );
 }
-
-export default Skills;
