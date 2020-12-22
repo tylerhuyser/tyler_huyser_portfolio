@@ -196,7 +196,7 @@ function Skills(props) {
   // From: https://github.com/LucasLombardo/portfolio-blog/blob/master/src/components/home/skillSlider.js
 
   return (
-    <div className="skills-container" id="skills">
+    <div className="section skills-container" id="skills">
 
       <h1 className="skills-title">SKILLS</h1>
 

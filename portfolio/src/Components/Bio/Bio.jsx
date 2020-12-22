@@ -5,7 +5,7 @@ function Bio() {
 
 
   return (
-    <div className="bio-container" id="bio">
+    <div className="section bio-container" id="bio">
 
       <div className="bio-contents">
 

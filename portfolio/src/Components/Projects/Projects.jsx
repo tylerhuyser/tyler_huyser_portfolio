@@ -6,7 +6,7 @@ function Projects() {
 
   
   return (
-    <div className="projects-container">
+    <div className="section projects-container" id="projects">
 
       <p className="projects-title">PORTFOLIO</p>
 

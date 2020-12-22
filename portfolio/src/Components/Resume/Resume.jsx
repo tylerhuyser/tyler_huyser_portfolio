@@ -6,7 +6,7 @@ function Resume() {
 
 
   return (
-    <div className="resume-container">
+    <div className="section resume-container" id="resume">
 
       <p className="resume-title">RESUME</p>
       <p className="resume-subtitle">Just some of my credentials</p>

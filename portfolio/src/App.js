@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactFullpage from "@fullpage/react-fullpage";
 
 import FullPageWrapper from './Components/FullPageWrapper/FullPageWrapper'
 import Nav from './Components/Nav/Nav.jsx';
