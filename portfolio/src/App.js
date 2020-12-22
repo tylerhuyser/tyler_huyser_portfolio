@@ -1,40 +1,24 @@
 import React, { useState } from 'react';
 
+import FullPageWrapper from './Components/FullPageWrapper/FullPageWrapper'
 import Nav from './Components/Nav/Nav.jsx';
-import Hero from './Components/Hero/Hero.jsx'
-import Bio from './Components/Bio/Bio.jsx';
-import Skills from './Components/Skills/Skills.jsx';
-import Projects from './Components/Projects/Projects.jsx';
-import Resume from './Components/Resume/Resume.jsx';
+// import Hero from './Components/Hero/Hero.jsx'
+// import Bio from './Components/Bio/Bio.jsx';
+// import Skills from './Components/Skills/Skills.jsx';
+// import Projects from './Components/Projects/Projects.jsx';
+// import Resume from './Components/Resume/Resume.jsx';
 
 import './App.css';
 
 function App() {
 
-  const [popularUpperIndex, setPopularUpperIndex] = useState(4);
-  const [popularLowerIndex, setPopularLowerIndex] = useState(0);
-
 
   return (
     <div className="App">
+
       <Nav />
 
-      {/* <Route exact path="/" component={Hero} > */}
-        <Hero id="hero" />
-      {/* </ Route>
-
-      <Route exact path="/bio" component={Bio} > */}
-        <Bio id="bio" />
-      {/* </Route>  
-
-      <Route path="/skills" component={Skills}> */}
-        <Skills id="skills" setPopularUpperIndex={setPopularUpperIndex} popularUpperIndex={popularUpperIndex} setPopularLowerIndex={setPopularLowerIndex} popularLowerIndex={popularLowerIndex} />
-      {/* </Route>   */}
-    
-        <Projects />
-
-        <Resume />
-
+      <FullPageWrapper />
 
     </div>
   );
