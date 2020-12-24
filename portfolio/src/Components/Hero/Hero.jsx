@@ -5,7 +5,7 @@ function Hero() {
   
   return (
 
-    <div className="section hero-container" id="hero">
+    <div className="section hero-container" id="home">
       
       <div className="hero-copy">
 
